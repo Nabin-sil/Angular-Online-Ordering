@@ -1,0 +1,89 @@
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 2rem;
+
+}
+
+
+.container > *{
+ min-width: 20rem;
+ max-width: 40rem;
+}
+
+img{
+    border-radius: 3rem;
+    flex:1 0;
+    object-fit: contain;
+    height: 20rem;
+    margin: 1rem;
+}
+
+.details{
+    display: flex;
+    flex-direction: column;
+    flex:1 1;
+    border-radius: 1rem;
+    padding: 2rem;
+    color: black;
+    margin-left: 1rem;
+}
+
+.details .header{
+    display: flex;
+    justify-content: space-between;
+}
+
+.details .cook-time{
+    margin-top: 1rem;
+}
+
+/* .details .cook-time span{
+    padding: .6rem 2rem .6rem 0;
+    border-radius: 10rem;
+    font-size: 1.1rem;
+    justify-content:center;
+} */
+
+.details .price{
+    font-size: 1.1rem;
+    margin: 2rem 2rem 2rem 0;
+    color: green;
+}
+
+.details .price::before{
+    content: "Price: ";
+    color: darkgrey;
+}
+
+.details .count::before{
+    content: "Count: ";
+    color: darkgrey;
+}
+
+
+
+
+.details button{
+    color: white;
+    background: #1150af;
+    border: none;
+    font-size: 1.0rem;
+    padding: 1rem;
+    border-radius: 1rem;
+    outline: none;
+}
+
+.details button:hover{
+    opacity: .9;
+    cursor: pointer;
+    
+}
+
+
+
+
+
+

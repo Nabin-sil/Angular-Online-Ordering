@@ -1,0 +1,83 @@
+<div class="centered title text-center mt-4">
+  <h1>Welcome to our Stripe checkout.</h1>
+</div>
+<hr class="featurette-divider" />
+
+<div class="mt-4">
+  <div class="card d-sm-block d-none" style="margin-left: 300px">
+    <div class="payment-details">
+      <h3>Payment Details</h3>
+      <p>
+        <i>
+          Try it out using the test card number
+          <b>4242 4242 4242 4242</b>, a random three-digit CVC number, any
+          expiration date in the future, and a random five-digit U.S. ZIP
+          code.</i>
+      </p>
+    </div>
+
+    <div class="summary">
+      <div class="text-data">
+        <p>Subtotal</p>
+        <p>VAT(20%)</p>
+        <h5>Total</h5>
+      </div>
+      <div class="numerical-data">
+        <p>{{ grandTotal | currency }}</p>
+        <p>{{ (grandTotal / 100) * 20 | currency }}</p>
+        <h5>{{ grandTotal + (grandTotal / 100) * 20 | currency }}</h5>
+      </div>
+    </div>
+    <div class="pay">
+      <button (click)="pay(sum)">Pay</button>
+    </div>
+    <div class="secure">
+      <i class="fa fa-lock"></i>
+      <p>Payments are secured and encrypted</p>
+    </div>
+    <div class="last">
+      <p>Powered by Online Shopping</p>
+      <a href="#"> Terms </a>
+      <a href="#"> Privacy </a>
+    </div>
+  </div>
+
+  <!-- FOr small screen -->
+  <div class="card-sm d-sm-none d-block">
+    <div class="payment-details">
+      <h3>Payment Details</h3>
+      <p>
+        <i>
+          Try it out using the test card number
+          <b>4242 4242 4242 4242</b>, a random three-digit CVC number, any
+          expiration date in the future, and a random five-digit U.S. ZIP
+          code.</i>
+      </p>
+    </div>
+
+    <div class="summary">
+      <div class="text-data">
+        <p>Subtotal</p>
+        <p>VAT(20%)</p>
+        <h5>Total</h5>
+      </div>
+      <div class="numerical-data">
+        <p>{{ grandTotal | currency }}</p>
+        <p>{{ (grandTotal / 100) * 20 | currency }}</p>
+        <h5>{{ grandTotal + (grandTotal / 100) * 20 | currency }}</h5>
+      </div>
+    </div>
+    <div class="pay">
+      <button (click)="pay(sum)">Pay</button>
+    </div>
+    <div class="secure">
+      <i class="fa fa-lock"></i>
+      <p>Payments are secured and encrypted</p>
+    </div>
+    <div class="last">
+      <p>Powered by Online Shopping</p>
+      <a href="#"> Terms </a>
+      <a href="#"> Privacy </a>
+    </div>
+  </div>
+</div>

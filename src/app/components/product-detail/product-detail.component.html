@@ -1,0 +1,69 @@
+<!-- For bigger screen -->
+<div *ngIf="product" class="container">
+  <img [src]="product.image" [alt]="product.name" class="d-sm-block d-none" />
+
+  <div class="details d-sm-block d-none">
+    <div class="cook-time">
+      <span>
+        <strong>{{ product.description }}</strong>
+      </span>
+    </div>
+
+    <h5 class="mt-2"></h5>
+    <p-rating [ngModel]="val3" [readonly]="true" [stars]="product.rating.rate" [cancel]="false"></p-rating>
+
+    <div class="price mt-1">
+      <span>{{ product.price | currency }}</span>
+    </div>
+
+    <div class="count mt-1 mb-4">
+      <p-inputNumber [(ngModel)]="product.quantity" mode="decimal" [showButtons]="true" inputId="minmax-buttons"
+        [min]="0" [max]="product.rating.count">
+      </p-inputNumber>
+      <div class="mt-2 ml-5">
+        <span>
+          <i class="small">
+            (You can increase or decrease the count)
+          </i>
+        </span>
+      </div>
+    </div>
+
+    <button (click)="addtocart(product)">Add To Cart</button>
+  </div>
+</div>
+
+<!-- For small screen only -->
+
+<div class="text-center d-sm-none d-block" *ngIf="product">
+  <img [src]="product.image" [alt]="product.name" />
+
+  <div class="details">
+    <div class="header">
+      <span class="name">
+        {{ product.name }}
+      </span>
+    </div>
+
+    <div class="cook-time">
+      <span>
+        <strong>{{ product.description }}</strong>
+      </span>
+    </div>
+
+    <h5 class="mt-2"></h5>
+    <p-rating [ngModel]="val3" [readonly]="true" [stars]="product.rating.rate" [cancel]="false"></p-rating>
+
+    <div class="price mt-1">
+      <span>{{ product.price | currency }}</span>
+    </div>
+
+    <div class="count mt-1 mb-4">
+      <p-inputNumber [(ngModel)]="product.quantity" mode="decimal" [showButtons]="true" inputId="minmax-buttons"
+        [min]="0" [max]="product.rating.count">
+      </p-inputNumber>
+    </div>
+
+    <button (click)="addtocart(product)">Add To Cart</button>
+  </div>
+</div>

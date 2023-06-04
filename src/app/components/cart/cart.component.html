@@ -1,0 +1,184 @@
+<ng-container *ngIf="products.length != 0">
+  <div class="container d-sm-block d-none ">
+    <div class="card-table mt-2">
+      <div class="cart-product">
+        <table class="table table-responsive">
+          <thead>
+            <tr>
+              <th>SN</th>
+              <th>Product Name</th>
+              <th>Product Image</th>
+              <th>Description</th>
+              <th>Price</th>
+              <th>Quantity</th>
+              <th>Total</th>
+              <th>Rating</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of products; let i = index">
+              <td>{{ i + 1 }}</td>
+              <td>{{ item.title }}</td>
+              <td>
+                <img style="width: 120px" src="{{ item.image }}" alt="" />
+              </td>
+              <td style="width: 25%">{{ item.description }}</td>
+              <th style="width: 12%">{{ item.price }}</th>
+              <td style="width: 12%">{{ item.quantity }}</td>
+              <td style="width: 12%">
+                {{ item.quantity * item?.price | number : "1.2-2" }}
+              </td>
+
+              <td style="width: 12%">
+                <p-rating [ngModel]="val3" [readonly]="true" [stars]="item.rating.rate" [cancel]="false"></p-rating>
+              </td>
+
+              <td>
+                <button (click)="removeItem(item)" class="btn btn-danger">
+                  <i class="fas fa-trash-alt"></i>
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="4"></td>
+              <td>
+                <button (click)="emptycart()" class="btn btn-danger">
+                  Empty&nbsp;Cart
+                </button>
+              </td>
+              <td>
+                <button routerLink="/" class="btn btn-primary">
+                  Shop&nbsp;More
+                </button>
+              </td>
+              <td>
+                <button class="btn btn-success" routerLink="/payment">
+                  Checkout
+                </button>
+              </td>
+              <td>
+                <strong>Grand Total : {{ grandTotal | currency }}</strong>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</ng-container>
+
+<ng-container *ngIf="products.length != 0">
+  <!-- MOBILE VIEW -->
+  <ul class="list-group list-group-flush d-sm-none d-block">
+    <li class="list-group-item text-center font-weight-bold">Cart Item List</li>
+    <li class="list-group-item" *ngFor="let item of products; let i = index">
+      <table class="table">
+        <tr>
+          <th class="text-left m-1 p-1 list-group-item-header font-weight-bold">
+            SN
+          </th>
+          <td class="list-group-item-value">
+            {{ i + 1 }}
+          </td>
+        </tr>
+
+        <tr>
+          <th class="text-left m-1 p-1 list-group-item-header font-weight-bold">
+            Image
+          </th>
+          <td class="list-group-item-value">
+            <img style="width: 120px" src="{{ item.image }}" alt="" />
+          </td>
+        </tr>
+
+        <tr>
+          <th class="text-left m-1 p-1 list-group-item-header font-weight-bold">
+            Description
+          </th>
+          <td class="list-group-item-value">
+            {{ item.description }}
+          </td>
+        </tr>
+
+        <tr>
+          <th class="text-left m-1 p-1 list-group-item-header font-weight-bold">
+            Ratings
+          </th>
+          <td class="list-group-item-value">
+            <p-rating [ngModel]="val3" [readonly]="true" [stars]="item.rating.rate" [cancel]="false"></p-rating>
+          </td>
+        </tr>
+
+        <tr>
+          <th class="text-left m-1 p-1 list-group-item-header font-weight-bold">
+            Price
+          </th>
+          <td class="list-group-item-value">
+            {{ item.price }}
+          </td>
+        </tr>
+
+        <tr>
+          <th class="text-left m-1 p-1 list-group-item-header font-weight-bold">
+            Quantity
+          </th>
+          <td class="list-group-item-value">
+            {{ item.quantity }}
+          </td>
+        </tr>
+
+        <tr>
+          <th class="text-left m-1 p-1 list-group-item-header font-weight-bold">
+            Total
+          </th>
+          <td class="list-group-item-value">
+            {{ item.quantity * item?.price | number : "1.2-2" }}
+          </td>
+        </tr>
+
+        <tr>
+          <th class="text-left m-1 p-1 list-group-item-header font-weight-bold">
+            Actions
+          </th>
+          <td class="list-group-item-value">
+            <button (click)="removeItem(item)" class="btn btn-danger">
+              <i class="fas fa-trash-alt"></i>
+            </button>
+          </td>
+        </tr>
+      </table>
+    </li>
+
+    <div class="row text-right m-5">
+      <strong class="text-right ml-4">Grand Total : {{ grandTotal | currency }}</strong>
+    </div>
+    <div class="row m-1">
+      <button (click)="emptycart()" class="btn btn-danger m-1">
+        Empty&nbsp;Cart
+      </button>
+
+      <button routerLink="/" class="btn btn-primary m-1">Shop&nbsp;More</button>
+
+      <button class="btn btn-success m-1" routerLink="/payment">
+        Checkout
+      </button>
+    </div>
+  </ul>
+</ng-container>
+
+<ng-container *ngIf="products.length == 0">
+  <div class="container">
+    <div class="card">
+      <h5 class="card-title">My Cart</h5>
+    </div>
+    <div class="center">
+      <img
+        src="https://rukminim1.flixcart.com/www/800/800/promos/16/05/2019/d438a32e-765a-4d8b-b4a6-520b560971e8.png?q=90"
+        alt="" />
+      <h4>Your cart is empty!</h4>
+      <h6>Add item to it now</h6>
+      <button routerLink="/product" class="btn btn-primary">Shop Now</button>
+    </div>
+  </div>
+</ng-container>
