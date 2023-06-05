@@ -73,35 +73,24 @@
 
 <p-scrollTop></p-scrollTop>
 
+
 <div class="container">
-  <div class="row">
-    <ng-container *ngFor="let item of filterCategory | filter : searchKey : 'title'">
-      <div class="card col-md-3 shadow-2">
+  <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+    <ng-container *ngFor="let item of filterCategory | filter: searchKey : 'title'">
+      <div class="card shadow-md">
         <a routerLink="/product/{{ item.id }}" class="">
-          <img src="{{ item.image }}" alt="" /></a>
-        <h5 style="
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            max-width: 100ch;
-          ">
-          {{ item.title }}
-        </h5>
-        <p style="
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            max-width: 100ch;
-          ">
-          {{ item.description }}
-        </p>
+          <img src="{{ item.image }}" alt="" />
+        </a>
+        <h5 class="truncate">{{ item.title }}</h5>
+        <p class="truncate">{{ item.description }}</p>
         <p-rating [ngModel]="val3" [readonly]="true" [stars]="item.rating.rate" [cancel]="false"></p-rating>
         <p><strong>Price:</strong> ${{ item.price }}</p>
 
-        <button pButton pRipple label="View&nbsp;detail" routerLink="/product/{{ item.id }}"></button>
+        <button class="mt-2" pButton pRipple label="View&nbsp;detail" routerLink="/product/{{ item.id }}"></button>
       </div>
     </ng-container>
   </div>
 </div>
+
 
 <p-scrollTop target="parent" styleClass="custom-scrolltop" [threshold]="100" icon="pi pi-arrow-up"></p-scrollTop>

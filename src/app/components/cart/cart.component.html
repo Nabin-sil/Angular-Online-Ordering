@@ -173,12 +173,17 @@
       <h5 class="card-title">My Cart</h5>
     </div>
     <div class="center">
-      <img
+      <img class="d-sm-block d-none"
         src="https://rukminim1.flixcart.com/www/800/800/promos/16/05/2019/d438a32e-765a-4d8b-b4a6-520b560971e8.png?q=90"
-        alt="" />
+        style="max-width: 200px; max-height: 200px; margin-top: 2%;" alt="" />
+
+      <img class="d-sm-none d-block"
+        src="https://rukminim1.flixcart.com/www/800/800/promos/16/05/2019/d438a32e-765a-4d8b-b4a6-520b560971e8.png?q=90"
+        style="max-width: 200px; max-height: 200px; margin-top: 150%;" alt="" />
       <h4>Your cart is empty!</h4>
       <h6>Add item to it now</h6>
-      <button routerLink="/product" class="btn btn-primary">Shop Now</button>
+      <button routerLink="/product" class="btn btn-primary" data-ripple-light="true">Shop Now</button>
+
     </div>
   </div>
 </ng-container>

@@ -1,8 +1,8 @@
 <!-- For bigger screen -->
 <div *ngIf="product" class="container">
-  <img [src]="product.image" [alt]="product.name" class="d-sm-block d-none" />
+  <img [src]="product.image" [alt]="product.name" class="hidden sm:block" />
 
-  <div class="details d-sm-block d-none">
+  <div class="details hidden sm:block">
     <div class="cook-time">
       <span>
         <strong>{{ product.description }}</strong>
@@ -22,20 +22,21 @@
       </p-inputNumber>
       <div class="mt-2 ml-5">
         <span>
-          <i class="small">
+          <i class="text-sm">
             (You can increase or decrease the count)
           </i>
         </span>
       </div>
     </div>
 
-    <button (click)="addtocart(product)">Add To Cart</button>
+    <button (click)="addtocart(product)" class="bg-blue-800 rounded-full hover:bg-blue-600 text-white py-2 px-4">Add To
+      Cart</button>
+
   </div>
 </div>
 
 <!-- For small screen only -->
-
-<div class="text-center d-sm-none d-block" *ngIf="product">
+<div class="text-center sm:hidden" *ngIf="product">
   <img [src]="product.image" [alt]="product.name" />
 
   <div class="details">
@@ -63,7 +64,8 @@
         [min]="0" [max]="product.rating.count">
       </p-inputNumber>
     </div>
+    <button (click)="addtocart(product)" class="bg-blue-800 hover:bg-blue-700 text-white py-2 px-4 rounded-md">Add To
+      Cart</button>
 
-    <button (click)="addtocart(product)">Add To Cart</button>
   </div>
 </div>

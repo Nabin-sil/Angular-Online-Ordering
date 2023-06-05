@@ -9,11 +9,23 @@ import { CartService } from 'src/app/service/cart.service';
 export class NavbarComponent {
   public searchTerm!: string;
   public totalItem: number = 0;
+  isNavbarHidden: boolean = true;
+  isDropdownOpen: boolean = false;
 
   constructor(private cartService: CartService) {}
 
   ngOnInit() {}
 
+  toggleNavbar() {
+    const navbar = document.getElementById('navbarSupportedContent');
+    if (navbar) {
+      navbar.classList.toggle('show');
+    }
+  }
+
+  toggleDropdown(): void {
+    this.isDropdownOpen = !this.isDropdownOpen;
+  }
   search(event: any) {
     this.searchTerm = (event.target as HTMLInputElement).value;
     console.log(this.searchTerm);

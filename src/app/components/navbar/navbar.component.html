@@ -5,10 +5,10 @@
     data-te-navbar-ref>
     <div class="flex w-full flex-wrap items-center justify-between px-3">
         <!-- Hamburger button for mobile view -->
-        <button
+        <button (click)="toggleNavbar()"
             class="block border-0 bg-transparent px-2 text-neutral-500 hover:no-underline hover:shadow-none focus:no-underline focus:shadow-none focus:outline-none focus:ring-0 dark:text-neutral-200 lg:hidden"
             type="button" data-te-collapse-init data-te-target="#navbarSupportedContent1"
-            aria-controls="navbarSupportedContent1" aria-expanded="false" aria-label="Toggle navigation">
+            [attr.aria-expanded]="!isNavbarHidden" aria-label="Toggle navigation">
             <!-- Hamburger icon -->
             <span class="[&>svg]:w-7">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-7 w-7">
@@ -19,9 +19,12 @@
             </span>
         </button>
 
+        <!-- Rest of the code -->
+
+
         <!-- Collapsible navigation container -->
-        <div class="!visible hidden flex-grow basis-[100%] items-center lg:!flex lg:basis-auto"
-            id="navbarSupportedContent1" data-te-collapse-item>
+        <div class="!visible  flex-grow basis-[100%] items-center lg:!flex lg:basis-auto" id="navbarSupportedContent1"
+            data-te-collapse-item>
             <!-- Logo -->
             <a class="mb-4 mr-2 mt-3 flex items-center text-neutral-900 hover:text-neutral-900 focus:text-neutral-900 dark:text-neutral-200 dark:hover:text-neutral-400 dark:focus:text-neutral-400 lg:mb-0 lg:mt-0"
                 href="#">
@@ -50,7 +53,7 @@
 
         <!-- Right elements -->
         <div class="relative flex items-center">
-            <input type="text" class="form-control mr-4" [(ngModel)]="searchTerm" (keyup)="search($event)"
+            <input type="text" class=" text-md form-control mr-4" [(ngModel)]="searchTerm" (keyup)="search($event)"
                 placeholder="Search products" />
 
 
